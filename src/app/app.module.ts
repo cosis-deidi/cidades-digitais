@@ -11,6 +11,21 @@ import { EntidadeComponent } from './entidade/entidade.component';
 import { CidadeDigitalComponent } from './cidade-digital/cidade-digital.component';
 import { LoteComponent } from './lote/lote.component';
 import { FiscalizacaoComponent } from './fiscalizacao/fiscalizacao.component';
+import { PrevisaoEmpenhoComponent } from './fiscalizacao/previsao-empenho/previsao-empenho.component';
+import { EmpenhoComponent } from './fiscalizacao/empenho/empenho.component';
+import { FaturaComponent } from './fiscalizacao/fatura/fatura.component';
+import { PagamentoComponent } from './fiscalizacao/pagamento/pagamento.component';
+import { AdministracaoComponent } from './administracao/administracao.component';
+import { AssuntoComponent } from './administracao/assunto/assunto.component';
+import { CategoriaComponent } from './administracao/categoria/categoria.component';
+import { ClasseEmpenhoComponent } from './administracao/classe-empenho/classe-empenho.component';
+import { EtapaComponent } from './administracao/etapa/etapa.component';
+import { MunicipioComponent } from './administracao/municipio/municipio.component';
+import { NaturezaDespesaComponent } from './administracao/natureza-despesa/natureza-despesa.component';
+import { ModuloComponent } from './administracao/modulo/modulo.component';
+import { PrefeitoComponent } from './administracao/prefeito/prefeito.component';
+import { TipologiaComponent } from './administracao/tipologia/tipologia.component';
+import { TipoItemComponent } from './administracao/tipo-item/tipo-item.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +37,22 @@ import { FiscalizacaoComponent } from './fiscalizacao/fiscalizacao.component';
     EntidadeComponent,
     CidadeDigitalComponent,
     LoteComponent,
-    FiscalizacaoComponent
+    FiscalizacaoComponent,
+    PrevisaoEmpenhoComponent,
+    EmpenhoComponent,
+    FaturaComponent,
+    PagamentoComponent,
+    AdministracaoComponent,
+    AssuntoComponent,
+    CategoriaComponent,
+    ClasseEmpenhoComponent,
+    EtapaComponent,
+    MunicipioComponent,
+    NaturezaDespesaComponent,
+    ModuloComponent,
+    PrefeitoComponent,
+    TipologiaComponent,
+    TipoItemComponent
   ],
   imports: [
     BrowserModule,
