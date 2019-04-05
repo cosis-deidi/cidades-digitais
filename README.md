@@ -12,6 +12,8 @@ de acesso à internet, sistemas de gestão na área pública e capacitação.
 MCTIC - (Ministério da Ciência, Tecnologia, Inovação e Comunicação). E tem o objetivo de melhorar
 e agilizar os processos de administração, execução e fiscalização do Cidades Digitais. 
 
+<p align="center">
+  <img src="http://www.mctic.gov.br/mctic/export/sites/institucional/arquivos/pictogramas/logo_mctic_horizontal_cor_gradiente_OLD.jpg">
+</p>
 
-![logo_mctic_horizontal_cor_gradiente_OLD](https://user-images.githubusercontent.com/26283983/55569835-a43e9400-56d8-11e9-9fe4-e31cccbcfe7b.jpg)
 
