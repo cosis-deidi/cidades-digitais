@@ -1,5 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+import { AuthService } from './login/auth.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +30,12 @@ import { ModuloComponent } from './administracao/modulo/modulo.component';
 import { PrefeitoComponent } from './administracao/prefeito/prefeito.component';
 import { TipologiaComponent } from './administracao/tipologia/tipologia.component';
 import { TipoItemComponent } from './administracao/tipo-item/tipo-item.component';
+import { Erro404Component } from './erro404/erro404.component';
+import { ErrorInterceptorProvider } from './services/error.interceptor';
+import { AuthGuard } from './guards/auth.guard.service';
+import { AuthenticationService, JwtInterceptorService, JwtInterceptor } from './services';
+import { HeaderComponent } from './utility/header/header.component';
+
 
 @NgModule({
   declarations: [
@@ -52,13 +62,27 @@ import { TipoItemComponent } from './administracao/tipo-item/tipo-item.component
     ModuloComponent,
     PrefeitoComponent,
     TipologiaComponent,
-    TipoItemComponent
+    TipoItemComponent,
+    Erro404Component,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuard,
+    AuthService,
+    ErrorInterceptorProvider,
+    AuthenticationService,
+    JwtInterceptorService,
+    {provide: LOCALE_ID,
+     useValue: 'pt-BR'},
+     JwtInterceptor,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
