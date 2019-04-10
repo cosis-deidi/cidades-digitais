@@ -9,7 +9,6 @@ module.exports = function(app){
     api.autentica = (req, res) => {
     	const knex = app.conexao.conexaoBDKnex();
         var user = req.body;
-
         knex.select('*').from('usuario').where('login', user.login)
             .then(resultado => {
                 knex.destroy();

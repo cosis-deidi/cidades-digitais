@@ -29,22 +29,28 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-     // reset login status
+    // reset login status
+    
       if (this.storageService.getLocalUser() !== null) {
-this.router.navigate(['/home']);
-    } else { 
-      this.authenticationService.logout();
-    }
+        this.router.navigate(['/home']);
+      } else {
+        this.authenticationService.logout();
+      }
   }
-
   fazerLogin() {
+    
     this.authenticationService.login(this.usuario.nome, this.usuario.senha)
       .subscribe(
         res => {
+          //console.log('Antes')
           this.authenticationService.successfulLogin(res.token);
+          //console.log('Depois')
           this.router.navigate(['/home']);
         },
-        erro => Swal('Erro', erro.error, 'error'));
+        erro => Swal('Erro', erro.error, 'error')
+        );
+        //
+        //console.log('passei aqui');
   }
 
 }

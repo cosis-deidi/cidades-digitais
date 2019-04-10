@@ -35,6 +35,13 @@ import { ErrorInterceptorProvider } from './services/error.interceptor';
 import { AuthGuard } from './guards/auth.guard.service';
 import { AuthenticationService, JwtInterceptorService, JwtInterceptor } from './services';
 import { HeaderComponent } from './utility/header/header.component';
+import { StorageService } from './services/storage.service';
+import { ConfirmModalComponent } from './utility/modal/modal.component';
+import { ApiServiceHandleError } from './api-services/api-service-handleError';
+import { FooterComponent } from './utility/footer/footer.component';
+import { SuiModule } from 'ng2-semantic-ui';
+import { SuiCheckbox, SuiCheckboxModule, SuiRatingModule } from 'ng2-semantic-ui/dist';
+import { ApiServicesData } from './api-services/api-services-data';
 
 
 @NgModule({
@@ -64,24 +71,33 @@ import { HeaderComponent } from './utility/header/header.component';
     TipologiaComponent,
     TipoItemComponent,
     Erro404Component,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
+    SuiModule,
+    SuiCheckboxModule,
+    SuiRatingModule
     
   ],
   providers: [
     AuthService,
     AuthGuard,
-    AuthService,
+    ApiServiceHandleError,
     ErrorInterceptorProvider,
     AuthenticationService,
     JwtInterceptorService,
     {provide: LOCALE_ID,
      useValue: 'pt-BR'},
      JwtInterceptor,
+     StorageService,
+     ApiServicesData
+     
+     
   ],
   bootstrap: [AppComponent]
 })

@@ -4,8 +4,8 @@ module.exports = function(app){
     app.route('/autentica')
         .post(autenticar.autentica);
 
-    app.use('/gesac/*', autenticar.verificaToken);
+    app.use('/cd/*', autenticar.verificaToken);
 
-    app.route('/gesac/deslogar')
+    app.route('/cd/deslogar')
         .post(autenticar.desloga);
 }

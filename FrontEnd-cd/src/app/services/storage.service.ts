@@ -5,11 +5,12 @@ export class StorageService {
 
     getLocalUser() {
         const usr = localStorage.getItem('localUser');
-        if (usr == null) {
+         if (usr == null) { 
             return null;
-        } else {
+         } else {
+             
             return JSON.parse(usr);
-        }
+        } 
     }
 
     setLocalUser(obj) {

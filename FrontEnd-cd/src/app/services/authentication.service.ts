@@ -1,10 +1,11 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { API } from '../app.api';
 import 'rxjs/add/operator/map';
 import { Router } from '@angular/router';
 import { JwtHelper } from 'angular2-jwt';
 import { StorageService } from './storage.service';
+//import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthenticationService {
@@ -13,14 +14,25 @@ export class AuthenticationService {
 
   helper: JwtHelper = new JwtHelper();
 
-    constructor(
-      private http: HttpClient,
-      private router: Router,
-      private storageService: StorageService
-    ) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private storageService: StorageService
+  ) { }
+
 
   login(login: string, senha: string) {
-      return this.http.post<any>(`${API.AUTH_API}autentica`, { login: login, senha: senha });
+    let httpHeaders = new HttpHeaders({
+      'Content-Type' : 'application/x-www-form-urlencoded',
+      'Cache-Control': 'no-cache'
+         });    
+         let options = {
+      headers: httpHeaders
+         };        
+     // login: edussr senha:edu123 reposta tem que ser Login Inativo
+      let a = this.http.post<any>(`${API.AUTH_API}autentica`, { login: login, senha: senha },options);
+      console.log(a)
+      return a;
   }
 
   successfulLogin(authorizationValue) {
@@ -47,7 +59,7 @@ export class AuthenticationService {
     this.router.navigate(['/login']);
   }
 
-  isLogado () {
+  isLogado() {
     if (this.storageService.getLocalUser()) {
       return true;
     } else {

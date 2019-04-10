@@ -9,7 +9,7 @@ var connectKnex = function(){
             host : '172.25.116.18',
             user : 'eduardo',
             password : 'eduardo',
-            database : 'cidades_digitais_v10'
+            database : 'cidades_digitais_db'
         }
     });
 }
