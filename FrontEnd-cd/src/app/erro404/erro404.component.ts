@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd , ActivatedRoute} from '@angular/router';
 import { API } from '../app.api';
-import { map, filter, scan } from 'rxjs/operators';
-
+import {filter} from 'rxjs/operators';
 @Component({
   selector: 'app-erro404',
   templateUrl: './erro404.component.html',
@@ -14,9 +13,9 @@ export class Erro404Component implements OnInit {
   baseUrl = API.GESAC_API.slice(0, -1);
 
   constructor(router: Router) {
-    router.events
-    .filter(event => event instanceof NavigationEnd)
-    .subscribe(e => {
+    router.events.pipe(
+     filter(event => event instanceof NavigationEnd)
+    ).subscribe(e => {
       this.previousUrl = e;
     });
   }

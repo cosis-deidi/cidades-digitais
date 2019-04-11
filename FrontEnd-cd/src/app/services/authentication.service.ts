@@ -1,10 +1,14 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Http,Headers} from "@angular/http"
 import { API } from '../app.api';
 import 'rxjs/add/operator/map';
 import { Router } from '@angular/router';
 import { JwtHelper } from 'angular2-jwt';
 import { StorageService } from './storage.service';
+import { Observable } from 'rxjs';
+
+
 //import { Observable } from 'rxjs';
 
 @Injectable()
@@ -13,30 +17,30 @@ export class AuthenticationService {
   emitirUsuario = new EventEmitter();
 
   helper: JwtHelper = new JwtHelper();
-
+  private url = `${API.AUTH_API}autentica`;
   constructor(
-    private http: HttpClient,
+    private http: Http,
     private router: Router,
-    private storageService: StorageService
+    private storageService: StorageService,
+
   ) { }
 
-
-  login(login: string, senha: string) {
-    let httpHeaders = new HttpHeaders({
-      'Content-Type' : 'application/x-www-form-urlencoded',
-      'Cache-Control': 'no-cache'
-         });    
-         let options = {
-      headers: httpHeaders
-         };        
-     // login: edussr senha:edu123 reposta tem que ser Login Inativo
-      let a = this.http.post<any>(`${API.AUTH_API}autentica`, { login: login, senha: senha },options);
-      console.log(a)
-      return a;
+  login(login: string, senha: string): Observable<any> {
+     /* let httpHeaders = new Headers();
+     httpHeaders.append('Content-Type', 'application/x-www-form-urlencoded') 
+      {headers:httpHeaders}
+     */
+    /* var json = JSON.stringify({login: login, senha: senha});
+                var params = 'json=' + json; */
+    // login: edussr senha:edu123 reposta tem que ser Login Inativo
+    let a = this.http.post(this.url, {login:login,senha:senha});
+    console.log(a)
+    return a
   }
 
   successfulLogin(authorizationValue) {
     const token = authorizationValue;
+    console.log(token);
     const localUser = {
       token: token,
       user: this.helper.decodeToken(token).login,

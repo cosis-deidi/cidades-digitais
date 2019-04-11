@@ -1,2 +1,20 @@
-
-  <a class="item" href="/home">Início</a>
+<div class="ui secondary pointing menu" *ngIf="isLogado()" > 
+  <a class="item" routerLinkActive="active" [routerLink]="['home']">Início</a>
+  <a class="item" routerLinkActive="active" [routerLink]="['ciddig']">Cidades Digitais</a>
+  <a class="item" *ngIf="verificarCode()" routerLinkActive="active" [routerLink]="['usuario']"> Usuário</a>
+      <div class="ui dropdown item" suiDropdown autoClose="disabled">
+        <div class="text">Relatório</div>
+        <i class="dropdown icon"></i>
+        <div class="menu" suiDropdownMenu>
+            <a class="item" href="https://app.powerbi.com/view?r=eyJrIjoiOWU4MmI1OWMtN2E0Ni00YWVmLTgzYzItMDVjOGVlODVlMTE2IiwidCI6Ijg4MGRkN2YxLWQwMmMtNGUxOS04MTVmLTQ2NDlkMzNmNWM2MyJ9"
+            target="_blank">Power BI</a>
+        </div>
+        </div>
+  <div class="right menu">
+    <a class="ui item" [routerLink]="['usuario',usuario.cod_usuario]" [innerHTML]="usuario.nome"></a>
+    <div class="bar"></div>
+    <a class="ui item" (click)="logout()">
+      Logout
+    </a>
+  </div>
+</div> 

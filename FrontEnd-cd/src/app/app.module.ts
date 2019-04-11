@@ -42,6 +42,9 @@ import { FooterComponent } from './utility/footer/footer.component';
 import { SuiModule } from 'ng2-semantic-ui';
 import { SuiCheckbox, SuiCheckboxModule, SuiRatingModule } from 'ng2-semantic-ui/dist';
 import { ApiServicesData } from './api-services/api-services-data';
+import { HttpModule } from '@angular/http';
+import { UsuarioService } from './usuario/usuario.service';
+import { ApiServicesMsg } from './api-services/api-services-msg';
 
 
 @NgModule({
@@ -79,6 +82,7 @@ import { ApiServicesData } from './api-services/api-services-data';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    HttpModule,
     SuiModule,
     SuiCheckboxModule,
     SuiRatingModule
@@ -95,7 +99,10 @@ import { ApiServicesData } from './api-services/api-services-data';
      useValue: 'pt-BR'},
      JwtInterceptor,
      StorageService,
-     ApiServicesData
+     ApiServicesData,
+     UsuarioService,
+     ApiServicesMsg
+
      
      
   ],
