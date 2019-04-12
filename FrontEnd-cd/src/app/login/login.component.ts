@@ -41,9 +41,9 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.usuario.nome, this.usuario.senha)
       .subscribe(
         res => {
-          let b = res._body;
+          let b = res.token;
           console.log(b)
-          this.authenticationService.successfulLogin(res._body);
+          this.authenticationService.successfulLogin(res.token);
           //console.log('Depois')
           this.router.navigate(['/home']);
         },

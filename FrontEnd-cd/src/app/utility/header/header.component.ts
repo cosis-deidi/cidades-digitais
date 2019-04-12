@@ -62,12 +62,12 @@ baixando: boolean;
 
    ngAfterContentChecked() {
     if ((this.storageService.getLocalUser() !== null) && (this.storageService.getLocalUser().user !== this.usuario.login)) {
-        /* this.usuarioService.getUsuario(this.authenticationService.verificaUser())
-          .subscribe(
-            result => {
-              this.usuario = result[0];
-            },
-            erro => Swal('Erro', erro.error, 'error')); */
+          // this.usuarioService.getUsuario(this.authenticationService.verificaUser())
+          // .subscribe(
+          //   result => {
+          //     this.usuario = result[0];
+          //   },
+          //   erro => Swal('Erro', erro.error, 'error')); 
     }
   } 
 }

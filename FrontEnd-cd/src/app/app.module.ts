@@ -45,6 +45,7 @@ import { ApiServicesData } from './api-services/api-services-data';
 import { HttpModule } from '@angular/http';
 import { UsuarioService } from './usuario/usuario.service';
 import { ApiServicesMsg } from './api-services/api-services-msg';
+import { ApiServicesPagination } from './api-services/api-services-pagination';
 
 
 @NgModule({
@@ -92,6 +93,7 @@ import { ApiServicesMsg } from './api-services/api-services-msg';
     AuthService,
     AuthGuard,
     ApiServiceHandleError,
+    ApiServicesPagination,
     ErrorInterceptorProvider,
     AuthenticationService,
     JwtInterceptorService,
