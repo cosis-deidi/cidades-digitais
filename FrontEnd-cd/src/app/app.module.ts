@@ -49,6 +49,9 @@ import { ApiServicesPagination } from './api-services/api-services-pagination';
 import { UsuarioAdicionarEditarComponent } from './usuario/usuario-adicionar-editar/usuario-adicionar-editar.component';
 import { FilterUsuarioPipe } from './usuario/filter-usuario.pipe';
 import { UsuarioHomeComponent } from './usuario/usuario-home/usuario-home.component';
+import { EntidadeHomeComponent } from './entidade/entidade-home/entidade-home.component';
+import { EntidadeService } from './entidade/entidade-home/entidade.service';
+import { EntidadeAdicionarEditarComponent } from './entidade/entidade-adicionar-editar/entidade-adicionar-editar.component';
 
 
 
@@ -84,6 +87,8 @@ import { UsuarioHomeComponent } from './usuario/usuario-home/usuario-home.compon
     Erro404Component,
     HeaderComponent,
     FooterComponent,
+    EntidadeHomeComponent,
+    EntidadeAdicionarEditarComponent,
   ],
   imports: [
     BrowserModule,
@@ -111,6 +116,7 @@ import { UsuarioHomeComponent } from './usuario/usuario-home/usuario-home.compon
      ApiServicesData,
      UsuarioService,
       FilterUsuarioPipe,
+     EntidadeService,
      ApiServicesMsg
 
      

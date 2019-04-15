@@ -9,12 +9,16 @@ import { CidadeDigitalComponent } from './cidade-digital/cidade-digital.componen
 import { UsuarioComponent } from './usuario/usuario.component';
 import { UsuarioAdicionarEditarComponent } from './usuario/usuario-adicionar-editar/usuario-adicionar-editar.component';
 import { UsuarioHomeComponent } from './usuario/usuario-home/usuario-home.component';
+import { EntidadeComponent } from './entidade/entidade.component';
+import { componentFactoryName } from '@angular/compiler';
+import { EntidadeHomeComponent } from './entidade/entidade-home/entidade-home.component';
+import { EntidadeAdicionarEditarComponent } from './entidade/entidade-adicionar-editar/entidade-adicionar-editar.component';
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { 
+  {
     path: 'home', component: HomeComponent,
     canActivate: [AuthGuard]
   },
@@ -31,19 +35,33 @@ const routes: Routes = [
       {
         path: '',
         component: UsuarioHomeComponent
-    },
-    {
+      },
+      {
         path: 'novo',
         component: UsuarioAdicionarEditarComponent
-    },
-    {
+      },
+      {
         path: ':id',
         component: UsuarioAdicionarEditarComponent
-    }
+      }
     ]
   },
+  {
+    path: 'entidade', component: EntidadeComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: '',
+        component: EntidadeHomeComponent,
+      },
+      {
+        path: 'novo',
+        component: EntidadeAdicionarEditarComponent
+      }
+    ],
+  },
   { path: 'erro404', component: Erro404Component },
-  { path: '**', redirectTo: '/erro404'}];
+  { path: '**', redirectTo: '/erro404' }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

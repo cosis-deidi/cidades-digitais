@@ -2,6 +2,7 @@
   <a class="item" routerLinkActive="active" [routerLink]="['home']">Início</a>
   <a class="item" routerLinkActive="active" [routerLink]="['ciddig']">Cidades Digitais</a>
   <a class="item" *ngIf="verificarCode()" routerLinkActive="active" [routerLink]="['usuario']"> Usuário</a>
+  <a class="item" *ngIf="verificarCode()" routerLinkActive="active" [routerLink]="['entidade']"> Entidade</a>
       <div class="ui dropdown item" suiDropdown autoClose="disabled">
         <div class="text">Relatório</div>
         <i class="dropdown icon"></i>
