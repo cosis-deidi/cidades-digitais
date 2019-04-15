@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { Erro404Component } from './erro404/erro404.component';
 import { CidadeDigitalComponent } from './cidade-digital/cidade-digital.component';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { UsuarioAdicionarEditarComponent } from './usuario/usuario-adicionar-editar/usuario-adicionar-editar.component';
+import { UsuarioHomeComponent } from './usuario/usuario-home/usuario-home.component';
 
 
 const routes: Routes = [
@@ -24,7 +26,21 @@ const routes: Routes = [
   {
     path: 'usuario', component: UsuarioComponent,
     //loadChildren: 'app/cidade-digital/cidade-digital.module#CidadeDigitalModule',
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: '',
+        component: UsuarioHomeComponent
+    },
+    {
+        path: 'novo',
+        component: UsuarioAdicionarEditarComponent
+    },
+    {
+        path: ':id',
+        component: UsuarioAdicionarEditarComponent
+    }
+    ]
   },
   { path: 'erro404', component: Erro404Component },
   { path: '**', redirectTo: '/erro404'}];

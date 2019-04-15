@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioService } from './usuario.service';
+import { UsuarioService } from '../usuario.service';
 
 
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../services';
-import { ApiServicesMsg } from '../api-services/api-services-msg';
-import { ApiServicesPagination } from '../api-services/api-services-pagination';
+import { AuthenticationService } from '../../services';
+import { ApiServicesMsg } from '../../api-services/api-services-msg';
+import { ApiServicesPagination } from '../../api-services/api-services-pagination';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-usuario',
-  templateUrl: './usuario.component.html',
-  styleUrls: ['./usuario.component.scss']
+  selector: 'app-usuario-home',
+  templateUrl: './usuario-home.component.html',
+  styleUrls: ['./usuario-home.component.scss']
 })
-export class UsuarioComponent implements OnInit {
+export class UsuarioHomeComponent implements OnInit {
   constructor(
     private apiServicesMsg: ApiServicesMsg,
     private authenticationService: AuthenticationService,

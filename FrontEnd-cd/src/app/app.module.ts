@@ -46,6 +46,10 @@ import { HttpModule } from '@angular/http';
 import { UsuarioService } from './usuario/usuario.service';
 import { ApiServicesMsg } from './api-services/api-services-msg';
 import { ApiServicesPagination } from './api-services/api-services-pagination';
+import { UsuarioAdicionarEditarComponent } from './usuario/usuario-adicionar-editar/usuario-adicionar-editar.component';
+import { FilterUsuarioPipe } from './usuario/filter-usuario.pipe';
+import { UsuarioHomeComponent } from './usuario/usuario-home/usuario-home.component';
+
 
 
 @NgModule({
@@ -55,6 +59,9 @@ import { ApiServicesPagination } from './api-services/api-services-pagination';
     LoginComponent,
     HomeComponent,
     UsuarioComponent,
+      UsuarioHomeComponent,
+      UsuarioAdicionarEditarComponent,
+      FilterUsuarioPipe,
     EntidadeComponent,
     CidadeDigitalComponent,
     LoteComponent,
@@ -76,7 +83,7 @@ import { ApiServicesPagination } from './api-services/api-services-pagination';
     TipoItemComponent,
     Erro404Component,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -103,6 +110,7 @@ import { ApiServicesPagination } from './api-services/api-services-pagination';
      StorageService,
      ApiServicesData,
      UsuarioService,
+      FilterUsuarioPipe,
      ApiServicesMsg
 
      
